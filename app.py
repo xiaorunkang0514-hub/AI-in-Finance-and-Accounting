@@ -19,9 +19,9 @@ def dbs():
 @app.route("/DbsPrediction", methods=["GET","POST"])
 def DbsPrediction():
     q= float(request.form.get("q"))
-    model = joblib.load("dbs.ji")
+    model = joblib.load("dbs.jl")
     r = model.predict([[q]])
     return(render_template("DbsPrediction.html",r=r))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=1234)
